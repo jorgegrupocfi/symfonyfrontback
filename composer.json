@@ -1,8 +1,8 @@
 {
-	"name" : "symfony/frontbackproject",
+	"name" : "frontbackproject/frontbackproject",
 	"license" : "MIT",
 	"type" : "project",
-	"description" : "The \"Symfony Standard Edition\" distribution",
+	"description" : "Test project in Symfony",
 	"autoload" : {
 		"psr-4" : {
 			"" : "src/"
