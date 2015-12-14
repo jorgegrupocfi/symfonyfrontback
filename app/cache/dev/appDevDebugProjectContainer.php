@@ -624,7 +624,7 @@ class appDevDebugProjectContainer extends Container
         $c = new \Symfony\Bridge\Doctrine\ContainerAwareEventManager($this);
         $c->addEventListener(array(0 => 'loadClassMetadata'), $this->get('doctrine.orm.default_listeners.attach_entity_listeners'));
 
-        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => NULL, 'dbname' => 'symfonyfrontback', 'user' => 'root', 'password' => 'privada30', 'charset' => 'UTF8', 'driverOptions' => array()), $b, $c, array());
+        return $this->services['doctrine.dbal.default_connection'] = $this->get('doctrine.dbal.connection_factory')->createConnection(array('driver' => 'pdo_mysql', 'host' => '127.0.0.1', 'port' => NULL, 'dbname' => 'symfonyfrontback', 'user' => 'root', 'password' => 'privada30', 'charset' => 'UTF8', 'driverOptions' => array(), 'defaultTableOptions' => array()), $b, $c, array());
     }
 
     /**
@@ -650,22 +650,28 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getDoctrine_Orm_DefaultEntityManagerService()
     {
-        $a = new \Doctrine\ORM\Configuration();
-        $a->setEntityNamespaces(array());
-        $a->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
-        $a->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
-        $a->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
-        $a->setMetadataDriverImpl(new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain());
-        $a->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
-        $a->setProxyNamespace('Proxies');
-        $a->setAutoGenerateProxyClasses(true);
-        $a->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
-        $a->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
-        $a->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy());
-        $a->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
-        $a->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
+        $a = new \Doctrine\ORM\Mapping\Driver\SimplifiedYamlDriver(array(($this->targetDirs[3].'\\src\\My\\RecipesBundle\\Resources\\config\\doctrine') => 'My\\RecipesBundle\\Entity'));
+        $a->setGlobalBasename('mapping');
 
-        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $a);
+        $b = new \Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain();
+        $b->addDriver($a, 'My\\RecipesBundle\\Entity');
+
+        $c = new \Doctrine\ORM\Configuration();
+        $c->setEntityNamespaces(array('MyRecipesBundle' => 'My\\RecipesBundle\\Entity'));
+        $c->setMetadataCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_metadata_cache'));
+        $c->setQueryCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_query_cache'));
+        $c->setResultCacheImpl($this->get('doctrine_cache.providers.doctrine.orm.default_result_cache'));
+        $c->setMetadataDriverImpl($b);
+        $c->setProxyDir((__DIR__.'/doctrine/orm/Proxies'));
+        $c->setProxyNamespace('Proxies');
+        $c->setAutoGenerateProxyClasses(true);
+        $c->setClassMetadataFactoryName('Doctrine\\ORM\\Mapping\\ClassMetadataFactory');
+        $c->setDefaultRepositoryClassName('Doctrine\\ORM\\EntityRepository');
+        $c->setNamingStrategy(new \Doctrine\ORM\Mapping\UnderscoreNamingStrategy());
+        $c->setQuoteStrategy(new \Doctrine\ORM\Mapping\DefaultQuoteStrategy());
+        $c->setEntityListenerResolver($this->get('doctrine.orm.default_entity_listener_resolver'));
+
+        $this->services['doctrine.orm.default_entity_manager'] = $instance = \Doctrine\ORM\EntityManager::create($this->get('doctrine.dbal.default_connection'), $c);
 
         $this->get('doctrine.orm.default_manager_configurator')->configure($instance);
 
@@ -1796,9 +1802,9 @@ class appDevDebugProjectContainer extends Container
         $instance->add($this->get('data_collector.router'));
         $instance->add($this->get('data_collector.form'));
         $instance->add(new \Symfony\Bridge\Twig\DataCollector\TwigDataCollector($this->get('twig.profile')));
-        $instance->add(new \Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector($this->get('security.token_storage', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('security.role_hierarchy')));
-        $instance->add(new \Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector($this));
         $instance->add($d);
+        $instance->add(new \Symfony\Bundle\SwiftmailerBundle\DataCollector\MessageDataCollector($this));
+        $instance->add(new \Symfony\Bundle\SecurityBundle\DataCollector\SecurityDataCollector($this->get('security.token_storage', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('security.role_hierarchy')));
         $instance->add($this->get('data_collector.dump'));
 
         return $instance;
@@ -2035,7 +2041,7 @@ class appDevDebugProjectContainer extends Container
 
         $e = new \Symfony\Component\Security\Http\AccessMap();
 
-        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($e, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '564f0627a6f186.05437103', $a, $c), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $e, $c)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), new \Symfony\Component\Security\Http\HttpUtils($d, $d), 'main', NULL, NULL, NULL, $a, false));
+        return $this->services['security.firewall.map.context.main'] = new \Symfony\Bundle\SecurityBundle\Security\FirewallContext(array(0 => new \Symfony\Component\Security\Http\Firewall\ChannelListener($e, new \Symfony\Component\Security\Http\EntryPoint\RetryAuthenticationEntryPoint(80, 443), $a), 1 => new \Symfony\Component\Security\Http\Firewall\ContextListener($b, array(0 => new \Symfony\Component\Security\Core\User\InMemoryUserProvider()), 'main', $a, $this->get('debug.event_dispatcher', ContainerInterface::NULL_ON_INVALID_REFERENCE)), 2 => new \Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener($b, '566ab9c8d87dd6.12220856', $a, $c), 3 => new \Symfony\Component\Security\Http\Firewall\AccessListener($b, $this->get('security.access.decision_manager'), $e, $c)), new \Symfony\Component\Security\Http\Firewall\ExceptionListener($b, $this->get('security.authentication.trust_resolver'), new \Symfony\Component\Security\Http\HttpUtils($d, $d), 'main', NULL, NULL, NULL, $a, false));
     }
 
     /**
@@ -3081,6 +3087,7 @@ class appDevDebugProjectContainer extends Container
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle/Resources/views'), 'Twig');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\swiftmailer-bundle/Resources/views'), 'Swiftmailer');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\doctrine\\doctrine-bundle/Resources/views'), 'Doctrine');
+        $instance->addPath(($this->targetDirs[3].'\\src\\My\\RecipesBundle/Resources/views'), 'MyRecipes');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\DebugBundle/Resources/views'), 'Debug');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle/Resources/views'), 'WebProfiler');
         $instance->addPath(($this->targetDirs[3].'\\vendor\\sensio\\distribution-bundle\\Sensio\\Bundle\\DistributionBundle/Resources/views'), 'SensioDistribution');
@@ -3245,7 +3252,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getWebProfiler_Controller_ProfilerService()
     {
-        return $this->services['web_profiler.controller.profiler'] = new \Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController($this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('twig'), array('data_collector.config' => array(0 => 'config', 1 => '@WebProfiler/Collector/config.html.twig'), 'data_collector.request' => array(0 => 'request', 1 => '@WebProfiler/Collector/request.html.twig'), 'data_collector.ajax' => array(0 => 'ajax', 1 => '@WebProfiler/Collector/ajax.html.twig'), 'data_collector.exception' => array(0 => 'exception', 1 => '@WebProfiler/Collector/exception.html.twig'), 'data_collector.events' => array(0 => 'events', 1 => '@WebProfiler/Collector/events.html.twig'), 'data_collector.logger' => array(0 => 'logger', 1 => '@WebProfiler/Collector/logger.html.twig'), 'data_collector.time' => array(0 => 'time', 1 => '@WebProfiler/Collector/time.html.twig'), 'data_collector.memory' => array(0 => 'memory', 1 => '@WebProfiler/Collector/memory.html.twig'), 'data_collector.router' => array(0 => 'router', 1 => '@WebProfiler/Collector/router.html.twig'), 'data_collector.form' => array(0 => 'form', 1 => '@WebProfiler/Collector/form.html.twig'), 'data_collector.twig' => array(0 => 'twig', 1 => '@WebProfiler/Collector/twig.html.twig'), 'data_collector.security' => array(0 => 'security', 1 => '@Security/Collector/security.html.twig'), 'swiftmailer.data_collector' => array(0 => 'swiftmailer', 1 => '@Swiftmailer/Collector/swiftmailer.html.twig'), 'data_collector.doctrine' => array(0 => 'db', 1 => '@Doctrine/Collector/db.html.twig'), 'data_collector.dump' => array(0 => 'dump', 1 => '@Debug/Profiler/dump.html.twig')), 'bottom');
+        return $this->services['web_profiler.controller.profiler'] = new \Symfony\Bundle\WebProfilerBundle\Controller\ProfilerController($this->get('router', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('profiler', ContainerInterface::NULL_ON_INVALID_REFERENCE), $this->get('twig'), array('data_collector.config' => array(0 => 'config', 1 => '@WebProfiler/Collector/config.html.twig'), 'data_collector.request' => array(0 => 'request', 1 => '@WebProfiler/Collector/request.html.twig'), 'data_collector.ajax' => array(0 => 'ajax', 1 => '@WebProfiler/Collector/ajax.html.twig'), 'data_collector.exception' => array(0 => 'exception', 1 => '@WebProfiler/Collector/exception.html.twig'), 'data_collector.events' => array(0 => 'events', 1 => '@WebProfiler/Collector/events.html.twig'), 'data_collector.logger' => array(0 => 'logger', 1 => '@WebProfiler/Collector/logger.html.twig'), 'data_collector.time' => array(0 => 'time', 1 => '@WebProfiler/Collector/time.html.twig'), 'data_collector.memory' => array(0 => 'memory', 1 => '@WebProfiler/Collector/memory.html.twig'), 'data_collector.router' => array(0 => 'router', 1 => '@WebProfiler/Collector/router.html.twig'), 'data_collector.form' => array(0 => 'form', 1 => '@WebProfiler/Collector/form.html.twig'), 'data_collector.twig' => array(0 => 'twig', 1 => '@WebProfiler/Collector/twig.html.twig'), 'data_collector.doctrine' => array(0 => 'db', 1 => '@Doctrine/Collector/db.html.twig'), 'swiftmailer.data_collector' => array(0 => 'swiftmailer', 1 => '@Swiftmailer/Collector/swiftmailer.html.twig'), 'data_collector.security' => array(0 => 'security', 1 => '@Security/Collector/security.html.twig'), 'data_collector.dump' => array(0 => 'dump', 1 => '@Debug/Profiler/dump.html.twig')), 'bottom');
     }
 
     /**
@@ -3380,7 +3387,7 @@ class appDevDebugProjectContainer extends Container
      */
     protected function getSecurity_Authentication_ManagerService()
     {
-        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('564f0627a6f186.05437103')), true);
+        $this->services['security.authentication.manager'] = $instance = new \Symfony\Component\Security\Core\Authentication\AuthenticationProviderManager(array(0 => new \Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider('566ab9c8d87dd6.12220856')), true);
 
         $instance->setEventDispatcher($this->get('debug.event_dispatcher'));
 
@@ -3572,12 +3579,15 @@ class appDevDebugProjectContainer extends Container
                 'SwiftmailerBundle' => 'Symfony\\Bundle\\SwiftmailerBundle\\SwiftmailerBundle',
                 'AsseticBundle' => 'Symfony\\Bundle\\AsseticBundle\\AsseticBundle',
                 'DoctrineBundle' => 'Doctrine\\Bundle\\DoctrineBundle\\DoctrineBundle',
+                'DoctrineMigrationsBundle' => 'Doctrine\\Bundle\\MigrationsBundle\\DoctrineMigrationsBundle',
                 'SensioFrameworkExtraBundle' => 'Sensio\\Bundle\\FrameworkExtraBundle\\SensioFrameworkExtraBundle',
                 'AppBundle' => 'AppBundle\\AppBundle',
+                'MyRecipesBundle' => 'My\\RecipesBundle\\MyRecipesBundle',
                 'DebugBundle' => 'Symfony\\Bundle\\DebugBundle\\DebugBundle',
                 'WebProfilerBundle' => 'Symfony\\Bundle\\WebProfilerBundle\\WebProfilerBundle',
                 'SensioDistributionBundle' => 'Sensio\\Bundle\\DistributionBundle\\SensioDistributionBundle',
                 'SensioGeneratorBundle' => 'Sensio\\Bundle\\GeneratorBundle\\SensioGeneratorBundle',
+                'DoctrineFixturesBundle' => 'Doctrine\\Bundle\\FixturesBundle\\DoctrineFixturesBundle',
             ),
             'kernel.charset' => 'UTF-8',
             'kernel.container_class' => 'appDevDebugProjectContainer',
@@ -4000,18 +4010,12 @@ class appDevDebugProjectContainer extends Container
             'assetic.request_listener.class' => 'Symfony\\Bundle\\AsseticBundle\\EventListener\\RequestListener',
             'doctrine_cache.apc.class' => 'Doctrine\\Common\\Cache\\ApcCache',
             'doctrine_cache.array.class' => 'Doctrine\\Common\\Cache\\ArrayCache',
+            'doctrine_cache.chain.class' => 'Doctrine\\Common\\Cache\\ChainCache',
+            'doctrine_cache.couchbase.class' => 'Doctrine\\Common\\Cache\\CouchbaseCache',
+            'doctrine_cache.couchbase.connection.class' => 'Couchbase',
+            'doctrine_cache.couchbase.hostnames' => 'localhost:8091',
             'doctrine_cache.file_system.class' => 'Doctrine\\Common\\Cache\\FilesystemCache',
             'doctrine_cache.php_file.class' => 'Doctrine\\Common\\Cache\\PhpFileCache',
-            'doctrine_cache.mongodb.class' => 'Doctrine\\Common\\Cache\\MongoDBCache',
-            'doctrine_cache.mongodb.collection.class' => 'MongoCollection',
-            'doctrine_cache.mongodb.connection.class' => 'MongoClient',
-            'doctrine_cache.mongodb.server' => 'localhost:27017',
-            'doctrine_cache.riak.class' => 'Doctrine\\Common\\Cache\\RiakCache',
-            'doctrine_cache.riak.bucket.class' => 'Riak\\Bucket',
-            'doctrine_cache.riak.connection.class' => 'Riak\\Connection',
-            'doctrine_cache.riak.bucket_property_list.class' => 'Riak\\BucketPropertyList',
-            'doctrine_cache.riak.host' => 'localhost',
-            'doctrine_cache.riak.port' => 8087,
             'doctrine_cache.memcache.class' => 'Doctrine\\Common\\Cache\\MemcacheCache',
             'doctrine_cache.memcache.connection.class' => 'Memcache',
             'doctrine_cache.memcache.host' => 'localhost',
@@ -4020,13 +4024,23 @@ class appDevDebugProjectContainer extends Container
             'doctrine_cache.memcached.connection.class' => 'Memcached',
             'doctrine_cache.memcached.host' => 'localhost',
             'doctrine_cache.memcached.port' => 11211,
+            'doctrine_cache.mongodb.class' => 'Doctrine\\Common\\Cache\\MongoDBCache',
+            'doctrine_cache.mongodb.collection.class' => 'MongoCollection',
+            'doctrine_cache.mongodb.connection.class' => 'MongoClient',
+            'doctrine_cache.mongodb.server' => 'localhost:27017',
             'doctrine_cache.redis.class' => 'Doctrine\\Common\\Cache\\RedisCache',
             'doctrine_cache.redis.connection.class' => 'Redis',
             'doctrine_cache.redis.host' => 'localhost',
             'doctrine_cache.redis.port' => 6379,
-            'doctrine_cache.couchbase.class' => 'Doctrine\\Common\\Cache\\CouchbaseCache',
-            'doctrine_cache.couchbase.connection.class' => 'Couchbase',
-            'doctrine_cache.couchbase.hostnames' => 'localhost:8091',
+            'doctrine_cache.riak.class' => 'Doctrine\\Common\\Cache\\RiakCache',
+            'doctrine_cache.riak.bucket.class' => 'Riak\\Bucket',
+            'doctrine_cache.riak.connection.class' => 'Riak\\Connection',
+            'doctrine_cache.riak.bucket_property_list.class' => 'Riak\\BucketPropertyList',
+            'doctrine_cache.riak.host' => 'localhost',
+            'doctrine_cache.riak.port' => 8087,
+            'doctrine_cache.sqlite3.class' => 'Doctrine\\Common\\Cache\\SQLite3Cache',
+            'doctrine_cache.sqlite3.connection.class' => 'SQLite3',
+            'doctrine_cache.void.class' => 'Doctrine\\Common\\Cache\\VoidCache',
             'doctrine_cache.wincache.class' => 'Doctrine\\Common\\Cache\\WinCacheCache',
             'doctrine_cache.xcache.class' => 'Doctrine\\Common\\Cache\\XcacheCache',
             'doctrine_cache.zenddata.class' => 'Doctrine\\Common\\Cache\\ZendDataCache',
@@ -4100,6 +4114,10 @@ class appDevDebugProjectContainer extends Container
             'doctrine.orm.auto_generate_proxy_classes' => true,
             'doctrine.orm.proxy_dir' => (__DIR__.'/doctrine/orm/Proxies'),
             'doctrine.orm.proxy_namespace' => 'Proxies',
+            'doctrine_migrations.dir_name' => ($this->targetDirs[2].'/DoctrineMigrations'),
+            'doctrine_migrations.namespace' => 'Application\\Migrations',
+            'doctrine_migrations.table_name' => 'migration_versions',
+            'doctrine_migrations.name' => 'Application Migrations',
             'sensio_framework_extra.view.guesser.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\Templating\\TemplateGuesser',
             'sensio_framework_extra.controller.listener.class' => 'Sensio\\Bundle\\FrameworkExtraBundle\\EventListener\\ControllerListener',
             'sensio_framework_extra.routing.loader.annot_dir.class' => 'Symfony\\Component\\Routing\\Loader\\AnnotationDirectoryLoader',
@@ -4168,17 +4186,17 @@ class appDevDebugProjectContainer extends Container
                     0 => 'twig',
                     1 => '@WebProfiler/Collector/twig.html.twig',
                 ),
-                'data_collector.security' => array(
-                    0 => 'security',
-                    1 => '@Security/Collector/security.html.twig',
+                'data_collector.doctrine' => array(
+                    0 => 'db',
+                    1 => '@Doctrine/Collector/db.html.twig',
                 ),
                 'swiftmailer.data_collector' => array(
                     0 => 'swiftmailer',
                     1 => '@Swiftmailer/Collector/swiftmailer.html.twig',
                 ),
-                'data_collector.doctrine' => array(
-                    0 => 'db',
-                    1 => '@Doctrine/Collector/db.html.twig',
+                'data_collector.security' => array(
+                    0 => 'security',
+                    1 => '@Security/Collector/security.html.twig',
                 ),
                 'data_collector.dump' => array(
                     0 => 'dump',

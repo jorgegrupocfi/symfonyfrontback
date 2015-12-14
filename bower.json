@@ -1,0 +1,15 @@
+{
+  "name": "symfonyfrontback",
+  "homepage": "",
+  "authors": [
+    "jorgegrupocfi <jorge@grupocfi.es>"
+  ],
+  "description": "descripción de bower",
+  "main": "",
+  "moduleType": [],
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "bootstrap": "~3.3.6"
+  }
+}
