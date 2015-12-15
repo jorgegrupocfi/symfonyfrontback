@@ -127,9 +127,22 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // my_recipes_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?P<name>[^/]++)$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'my_recipes_homepage')), array (  '_controller' => 'My\\RecipesBundle\\Controller\\DefaultController::indexAction',));
+        if (0 === strpos($pathinfo, '/recipe')) {
+            // recipes_list
+            if ($pathinfo === '/recipes-list') {
+                return array (  '_controller' => 'My\\RecipesBundle\\Controller\\RecipeController::listAction',  '_route' => 'recipes_list',);
+            }
+
+            // recipe_show
+            if (preg_match('#^/recipe/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'recipe_show')), array (  '_controller' => 'My\\RecipesBundle\\Controller\\RecipeController::showAction',));
+            }
+
+        }
+
+        // authors_list
+        if ($pathinfo === '/authors-list') {
+            return array (  '_controller' => 'My\\RecipesBundle\\Controller\\AuthorController::listAction',  '_route' => 'authors_list',);
         }
 
         // homepage

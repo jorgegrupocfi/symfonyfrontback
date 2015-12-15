@@ -1,13 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="UTF-8" />
-        <title>{% block title %}Symfony Front Back Project{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        {% include '::header.html.twig' %}
     </head>
     <body>
-        {% block body %}{% endblock %}
+    
+    <div id="content">
+    
+	    <div id="wrapper">
+		    <div id="sidebar">
+		    {% include '::sidebar.html.twig' %}	
+		    </div>
+		    
+		   	<div id="container">
+		        {% block body %}{% endblock %}
+		    </div>
+		    
+		    <div id="footer">
+		    {% include '::footer.html.twig' %}
+		    </div>
+    </div>
+    
         {% block javascripts %}{% endblock %}
     </body>
 </html>

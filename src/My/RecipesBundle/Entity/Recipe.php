@@ -22,10 +22,6 @@ class Recipe {
 		$this->ingredients = new ArrayCollection();
 	}
 
-	public function add(Ingredient $ingredient){
-		$this->ingredients[] = $ingredient;
-	}
-	
     /**
      * Get id
      *
