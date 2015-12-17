@@ -7,7 +7,7 @@ class Ingredient {
 	private $id;
 	protected $name;
 	
-	public function __construct($name) {
+	public function __construct($name = NULL) {
 		$this->name = $name;
 	}
 

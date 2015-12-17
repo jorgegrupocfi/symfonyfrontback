@@ -246,6 +246,17 @@ class Author extends \My\RecipesBundle\Entity\Author implements \Doctrine\ORM\Pr
     /**
      * {@inheritDoc}
      */
+    public function getNombreApellidos()
+    {
+
+        $this->__initializer__ && $this->__initializer__->__invoke($this, 'getNombreApellidos', array());
+
+        return parent::getNombreApellidos();
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function addRecipe(\My\RecipesBundle\Entity\Recipe $recipe)
     {
 

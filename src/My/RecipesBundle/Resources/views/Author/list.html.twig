@@ -1,12 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% block sub_sidebar %}
+<div id="submenu">
+
+	<a href="{{ url('author_create') }}">Crear Nuevo</a>
+
+</div>
+{% endblock %}
+
 {% block title %}Listado de autores{% endblock %}
 
 {% block body %}
 <ul>
 {% for author in authors %}
 
-<li>{{ author.name }} {{ author.surname }}</li>
+<li>
+{{ author.NombreApellidos }} [<a href="{{ url('author_modify', { 'id': author.id }) }}">Modify</a>]
+</li>
 
 {% endfor %}
 </ul>

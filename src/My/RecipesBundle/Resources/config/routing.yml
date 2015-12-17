@@ -1,6 +1,6 @@
 homepage:
-    pattern:   /
-    defaults:  { _controller: AppBundle:Default:show }
+  pattern:  /
+  defaults: { _controller: AppBundle:Default:show }
 
 recipes_list:
   path:     /recipes-list
@@ -9,7 +9,41 @@ recipes_list:
 recipe_show:
   path:     /recipe/{id}
   defaults: { _controller: MyRecipesBundle:Recipe:show }
+
+recipe_create:
+  path:     /recipe-create
+  defaults: { _controller: MyRecipesBundle:Recipe:create }
+
+recipe_modify:
+  path:     /recipe-modify/{id}
+  defaults: { _controller: MyRecipesBundle:Recipe:modify }
+  requirements:
+    id:  \d+
   
 authors_list:
   path:     /authors-list
   defaults: { _controller: MyRecipesBundle:Author:list }
+  
+author_create:
+  path:     /author-create
+  defaults: { _controller: MyRecipesBundle:Author:create }
+  
+author_modify:
+  path:     /author-modify/{id}
+  defaults: { _controller: MyRecipesBundle:Author:modify }
+  requirements:
+    id:  \d+
+    
+ingredients_list:
+  path:     /ingredients-list
+  defaults: { _controller: MyRecipesBundle:Ingredient:list }
+  
+ingredient_create:
+  path:     /ingredient-create
+  defaults: { _controller: MyRecipesBundle:Ingredient:create }
+  
+ingredient_modify:
+  path:     /ingredient-modify/{id}
+  defaults: { _controller: MyRecipesBundle:Ingredient:modify }
+  requirements:
+    id:  \d+

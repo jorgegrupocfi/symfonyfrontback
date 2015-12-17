@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block sub_sidebar %}
+<div id="submenu">
+
+	<a href="{{ url('ingredient_create') }}">Crear Nuevo</a>
+
+</div>
+{% endblock %}
+
+{% block title %}Listado de ingredientes{% endblock %}
+
+{% block body %}
+<ul>
+{% for ingredient in ingredients %}
+
+<li>{{ ingredient.name }} [<a href="{{ url('ingredient_modify', { 'id': ingredient.id }) }}">Modify</a>]</li>
+
+{% endfor %}
+</ul>
+{% endblock %}

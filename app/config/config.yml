@@ -37,6 +37,9 @@ twig:
     strict_variables: "%kernel.debug%"
     globals:
       contact_email: "jorge@grupocfi.es"
+    form:
+      resources: ['bootstrap_3_layout.html.twig']
+      # resources: ['bootstrap_3_horizontal_layout.html.twig']
 
 # Assetic Configuration
 assetic:

@@ -16,8 +16,8 @@ class __TwigTemplate_b365aeb7a751d15d0d3d02e247d1410fa45fa596571c489e0b2cbabd988
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_622777d9a058090746f1d92e89bd257f3589e0a0864c55316d673fef52c4b7bf = $this->env->getExtension("native_profiler");
-        $__internal_622777d9a058090746f1d92e89bd257f3589e0a0864c55316d673fef52c4b7bf->enter($__internal_622777d9a058090746f1d92e89bd257f3589e0a0864c55316d673fef52c4b7bf_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::sidebar.html.twig"));
+        $__internal_2f31e0c60a87b052c9dd34be0360eaf2edffebf500c959c0f3b57ae4763b8180 = $this->env->getExtension("native_profiler");
+        $__internal_2f31e0c60a87b052c9dd34be0360eaf2edffebf500c959c0f3b57ae4763b8180->enter($__internal_2f31e0c60a87b052c9dd34be0360eaf2edffebf500c959c0f3b57ae4763b8180_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::sidebar.html.twig"));
 
         // line 1
         echo "
@@ -25,14 +25,14 @@ class __TwigTemplate_b365aeb7a751d15d0d3d02e247d1410fa45fa596571c489e0b2cbabd988
         // line 2
         $this->displayBlock('sidebar', $context, $blocks);
         
-        $__internal_622777d9a058090746f1d92e89bd257f3589e0a0864c55316d673fef52c4b7bf->leave($__internal_622777d9a058090746f1d92e89bd257f3589e0a0864c55316d673fef52c4b7bf_prof);
+        $__internal_2f31e0c60a87b052c9dd34be0360eaf2edffebf500c959c0f3b57ae4763b8180->leave($__internal_2f31e0c60a87b052c9dd34be0360eaf2edffebf500c959c0f3b57ae4763b8180_prof);
 
     }
 
     public function block_sidebar($context, array $blocks = array())
     {
-        $__internal_101ec41b3a3b0f32370561f6e4eeb65fe3922f2a154579c98a5f213c57eb5d9d = $this->env->getExtension("native_profiler");
-        $__internal_101ec41b3a3b0f32370561f6e4eeb65fe3922f2a154579c98a5f213c57eb5d9d->enter($__internal_101ec41b3a3b0f32370561f6e4eeb65fe3922f2a154579c98a5f213c57eb5d9d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
+        $__internal_2a8deed8bcdd1c0aea8cd9f10adf789721fe990fa20dcf1ac70a3efd30cc5784 = $this->env->getExtension("native_profiler");
+        $__internal_2a8deed8bcdd1c0aea8cd9f10adf789721fe990fa20dcf1ac70a3efd30cc5784->enter($__internal_2a8deed8bcdd1c0aea8cd9f10adf789721fe990fa20dcf1ac70a3efd30cc5784_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
 
         // line 3
         echo "<h2>Sidebar</h2>
@@ -49,10 +49,14 @@ class __TwigTemplate_b365aeb7a751d15d0d3d02e247d1410fa45fa596571c489e0b2cbabd988
         // line 7
         echo $this->env->getExtension('routing')->getUrl("authors_list");
         echo "\">Autores</a></li>
+<li><a href=\"";
+        // line 8
+        echo $this->env->getExtension('routing')->getUrl("ingredients_list");
+        echo "\">Ingredientes</a></li>
 </ul>
 ";
         
-        $__internal_101ec41b3a3b0f32370561f6e4eeb65fe3922f2a154579c98a5f213c57eb5d9d->leave($__internal_101ec41b3a3b0f32370561f6e4eeb65fe3922f2a154579c98a5f213c57eb5d9d_prof);
+        $__internal_2a8deed8bcdd1c0aea8cd9f10adf789721fe990fa20dcf1ac70a3efd30cc5784->leave($__internal_2a8deed8bcdd1c0aea8cd9f10adf789721fe990fa20dcf1ac70a3efd30cc5784_prof);
 
     }
 
@@ -63,7 +67,7 @@ class __TwigTemplate_b365aeb7a751d15d0d3d02e247d1410fa45fa596571c489e0b2cbabd988
 
     public function getDebugInfo()
     {
-        return array (  50 => 7,  46 => 6,  42 => 5,  38 => 3,  26 => 2,  23 => 1,);
+        return array (  54 => 8,  50 => 7,  46 => 6,  42 => 5,  38 => 3,  26 => 2,  23 => 1,);
     }
 }
 /* */
@@ -73,5 +77,6 @@ class __TwigTemplate_b365aeb7a751d15d0d3d02e247d1410fa45fa596571c489e0b2cbabd988
 /* <li><a href="{{ url('homepage')}}">Home</a></li>*/
 /* <li><a href="{{ url('recipes_list') }}">Recetas</a></li>*/
 /* <li><a href="{{ url('authors_list') }}">Autores</a></li>*/
+/* <li><a href="{{ url('ingredients_list') }}">Ingredientes</a></li>*/
 /* </ul>*/
 /* {% endblock %}*/

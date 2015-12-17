@@ -10,6 +10,7 @@ class __TwigTemplate_2f60247e4bc291c6e9b47fad17c0aaf90f7c77adf29f4806a4afd23f83a
         $this->parent = false;
 
         $this->blocks = array(
+            'sub_sidebar' => array($this, 'block_sub_sidebar'),
             'body' => array($this, 'block_body'),
             'javascripts' => array($this, 'block_javascripts'),
         );
@@ -17,8 +18,8 @@ class __TwigTemplate_2f60247e4bc291c6e9b47fad17c0aaf90f7c77adf29f4806a4afd23f83a
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_cdb318c7b533da2dd9f5a78a8058ec93770710e5013e76827a4f1bb7c363e7b2 = $this->env->getExtension("native_profiler");
-        $__internal_cdb318c7b533da2dd9f5a78a8058ec93770710e5013e76827a4f1bb7c363e7b2->enter($__internal_cdb318c7b533da2dd9f5a78a8058ec93770710e5013e76827a4f1bb7c363e7b2_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::base.html.twig"));
+        $__internal_711f1c8cb18075a763f2145268f850672ca4b7ffdefd30dda51173498327bb7a = $this->env->getExtension("native_profiler");
+        $__internal_711f1c8cb18075a763f2145268f850672ca4b7ffdefd30dda51173498327bb7a->enter($__internal_711f1c8cb18075a763f2145268f850672ca4b7ffdefd30dda51173498327bb7a_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::base.html.twig"));
 
         // line 1
         echo "<!DOCTYPE html>
@@ -34,59 +35,78 @@ class __TwigTemplate_2f60247e4bc291c6e9b47fad17c0aaf90f7c77adf29f4806a4afd23f83a
     <div id=\"content\">
     
 \t    <div id=\"wrapper\">
+\t    
 \t\t    <div id=\"sidebar\">
 \t\t    ";
-        // line 12
-        $this->loadTemplate("::sidebar.html.twig", "::base.html.twig", 12)->display($context);
+        // line 13
+        $this->loadTemplate("::sidebar.html.twig", "::base.html.twig", 13)->display($context);
         echo "\t
 \t\t    </div>
 \t\t    
+\t\t    <div id=\"sub_sidebar\">
+\t\t    \t";
+        // line 17
+        $this->displayBlock('sub_sidebar', $context, $blocks);
+        // line 18
+        echo "\t\t    </div>
+\t\t    
 \t\t   \t<div id=\"container\">
 \t\t        ";
-        // line 16
+        // line 21
         $this->displayBlock('body', $context, $blocks);
-        // line 17
+        // line 22
         echo "\t\t    </div>
 \t\t    
 \t\t    <div id=\"footer\">
 \t\t    ";
-        // line 20
-        $this->loadTemplate("::footer.html.twig", "::base.html.twig", 20)->display($context);
-        // line 21
+        // line 25
+        $this->loadTemplate("::footer.html.twig", "::base.html.twig", 25)->display($context);
+        // line 26
         echo "\t\t    </div>
     </div>
     
         ";
-        // line 24
+        // line 29
         $this->displayBlock('javascripts', $context, $blocks);
-        // line 25
+        // line 30
         echo "    </body>
 </html>
 ";
         
-        $__internal_cdb318c7b533da2dd9f5a78a8058ec93770710e5013e76827a4f1bb7c363e7b2->leave($__internal_cdb318c7b533da2dd9f5a78a8058ec93770710e5013e76827a4f1bb7c363e7b2_prof);
+        $__internal_711f1c8cb18075a763f2145268f850672ca4b7ffdefd30dda51173498327bb7a->leave($__internal_711f1c8cb18075a763f2145268f850672ca4b7ffdefd30dda51173498327bb7a_prof);
 
     }
 
-    // line 16
+    // line 17
+    public function block_sub_sidebar($context, array $blocks = array())
+    {
+        $__internal_4fce3d9bb471d6d863ef684c8a1b757ca204cfc1cd6a5310b7f36fbd496c2e5b = $this->env->getExtension("native_profiler");
+        $__internal_4fce3d9bb471d6d863ef684c8a1b757ca204cfc1cd6a5310b7f36fbd496c2e5b->enter($__internal_4fce3d9bb471d6d863ef684c8a1b757ca204cfc1cd6a5310b7f36fbd496c2e5b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sub_sidebar"));
+
+        
+        $__internal_4fce3d9bb471d6d863ef684c8a1b757ca204cfc1cd6a5310b7f36fbd496c2e5b->leave($__internal_4fce3d9bb471d6d863ef684c8a1b757ca204cfc1cd6a5310b7f36fbd496c2e5b_prof);
+
+    }
+
+    // line 21
     public function block_body($context, array $blocks = array())
     {
-        $__internal_1431772eae6d0da3036b82e30572fad479ff7c0077c78ecbdb2f05b1e6cf5d5d = $this->env->getExtension("native_profiler");
-        $__internal_1431772eae6d0da3036b82e30572fad479ff7c0077c78ecbdb2f05b1e6cf5d5d->enter($__internal_1431772eae6d0da3036b82e30572fad479ff7c0077c78ecbdb2f05b1e6cf5d5d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_738e85a7ad2722696992fd3a22576047c953bf3218034edcc2e55a175b7e0bac = $this->env->getExtension("native_profiler");
+        $__internal_738e85a7ad2722696992fd3a22576047c953bf3218034edcc2e55a175b7e0bac->enter($__internal_738e85a7ad2722696992fd3a22576047c953bf3218034edcc2e55a175b7e0bac_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         
-        $__internal_1431772eae6d0da3036b82e30572fad479ff7c0077c78ecbdb2f05b1e6cf5d5d->leave($__internal_1431772eae6d0da3036b82e30572fad479ff7c0077c78ecbdb2f05b1e6cf5d5d_prof);
+        $__internal_738e85a7ad2722696992fd3a22576047c953bf3218034edcc2e55a175b7e0bac->leave($__internal_738e85a7ad2722696992fd3a22576047c953bf3218034edcc2e55a175b7e0bac_prof);
 
     }
 
-    // line 24
+    // line 29
     public function block_javascripts($context, array $blocks = array())
     {
-        $__internal_4e142c1834171d697f0ca613f2cb56bac772442aa8e24c5132d63820c92575fa = $this->env->getExtension("native_profiler");
-        $__internal_4e142c1834171d697f0ca613f2cb56bac772442aa8e24c5132d63820c92575fa->enter($__internal_4e142c1834171d697f0ca613f2cb56bac772442aa8e24c5132d63820c92575fa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_d39f7e2d6bc75711c01a4ef728cb95cd845be587f5ce2e1de3717883535311db = $this->env->getExtension("native_profiler");
+        $__internal_d39f7e2d6bc75711c01a4ef728cb95cd845be587f5ce2e1de3717883535311db->enter($__internal_d39f7e2d6bc75711c01a4ef728cb95cd845be587f5ce2e1de3717883535311db_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "javascripts"));
 
         
-        $__internal_4e142c1834171d697f0ca613f2cb56bac772442aa8e24c5132d63820c92575fa->leave($__internal_4e142c1834171d697f0ca613f2cb56bac772442aa8e24c5132d63820c92575fa_prof);
+        $__internal_d39f7e2d6bc75711c01a4ef728cb95cd845be587f5ce2e1de3717883535311db->leave($__internal_d39f7e2d6bc75711c01a4ef728cb95cd845be587f5ce2e1de3717883535311db_prof);
 
     }
 
@@ -102,7 +122,7 @@ class __TwigTemplate_2f60247e4bc291c6e9b47fad17c0aaf90f7c77adf29f4806a4afd23f83a
 
     public function getDebugInfo()
     {
-        return array (  83 => 24,  72 => 16,  63 => 25,  61 => 24,  56 => 21,  54 => 20,  49 => 17,  47 => 16,  40 => 12,  31 => 5,  29 => 4,  24 => 1,);
+        return array (  103 => 29,  92 => 21,  81 => 17,  72 => 30,  70 => 29,  65 => 26,  63 => 25,  58 => 22,  56 => 21,  51 => 18,  49 => 17,  42 => 13,  32 => 5,  30 => 4,  25 => 1,);
     }
 }
 /* <!DOCTYPE html>*/
@@ -115,8 +135,13 @@ class __TwigTemplate_2f60247e4bc291c6e9b47fad17c0aaf90f7c77adf29f4806a4afd23f83a
 /*     <div id="content">*/
 /*     */
 /* 	    <div id="wrapper">*/
+/* 	    */
 /* 		    <div id="sidebar">*/
 /* 		    {% include '::sidebar.html.twig' %}	*/
+/* 		    </div>*/
+/* 		    */
+/* 		    <div id="sub_sidebar">*/
+/* 		    	{% block sub_sidebar %}{% endblock %}*/
 /* 		    </div>*/
 /* 		    */
 /* 		   	<div id="container">*/

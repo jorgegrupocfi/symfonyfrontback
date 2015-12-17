@@ -13,7 +13,7 @@ class Recipe {
 	protected $author;
 	protected $ingredients;
 	
-	public function __construct(Author $author, $name, $difficulty, $description) {
+	public function __construct(\My\RecipesBundle\Entity\Author $author = null, $name = NULL, $difficulty = NULL, $description = NULL) {
 		
 		$this->author = $author;
 		$this->name = $name;

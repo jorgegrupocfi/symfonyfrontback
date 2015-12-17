@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crear un nuevo autor{% endblock %}
+
+{% block body %}
+
+{{ form_start(form, {'attr' : {'id' : 'author-create'}}) }}
+
+{{ form_errors(form) }}
+{{ form_row(form.name) }}
+{{ form_row(form.surname) }}
+{{ form_row(form.save) }}
+
+
+{{ form_end(form) }}
+
+{% endblock %}

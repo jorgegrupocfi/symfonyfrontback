@@ -2,14 +2,30 @@
 
 namespace My\RecipesBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+use AppBundle\Validator\Constraints as AuthorAssert;
+
 class Author {
 	
 	private $id;
+	
+	/**
+	 * @Assert\NotBlank()
+	 * @AuthorAssert\ConstrainsNoNumeros
+	 * )
+	 */
 	protected $name;
+	
+	/**
+	 * @Assert\NotBlank(
+	 * 		message="El apellido del autor no puede estar vacío."
+	 * )
+	 */
 	protected $surname;
+	
 	protected $recipes;
 	
-	public function __construct($name, $surname) {
+	public function __construct($name = NULL, $surname = NULL) {
 		$this->name = $name;
 		$this->surname = $surname;
 	}
@@ -18,7 +34,6 @@ class Author {
 		return $this->recipes;
 	}
 	
-
     /**
      * Get id
      *
@@ -75,6 +90,16 @@ class Author {
     public function getSurname()
     {
         return $this->surname;
+    }
+    
+    /**
+     * Get name + surname
+     *
+     * @return string
+     */
+    public function getNombreApellidos()
+    {
+    	return $this->name . ' ' . $this->surname;
     }
 
     /**

@@ -8,8 +8,13 @@
     <div id="content">
     
 	    <div id="wrapper">
+	    
 		    <div id="sidebar">
 		    {% include '::sidebar.html.twig' %}	
+		    </div>
+		    
+		    <div id="sub_sidebar">
+		    	{% block sub_sidebar %}{% endblock %}
 		    </div>
 		    
 		   	<div id="container">

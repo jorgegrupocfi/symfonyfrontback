@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Crear un nuevo ingrediente{% endblock %}
+
+{% block body %}
+
+{{ form_start(form, {'attr' : {'id' : 'ingredient-create'}}) }}
+
+{{ form_errors(form) }}
+{{ form_row(form.name) }}
+{{ form_row(form.save) }}
+
+{{ form_end(form) }}
+
+{% endblock %}

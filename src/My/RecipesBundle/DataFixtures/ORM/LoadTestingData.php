@@ -25,7 +25,6 @@ class LoadRecipeDataTesting implements FixtureInterface
     	$manager->persist($recipe);
     	
     	//Ingredient
-    	
     	$ingredients_arr = array('Huevo', 'Patatas', 'Ketchup');
     	
     	foreach ($ingredients_arr as $ingredient){

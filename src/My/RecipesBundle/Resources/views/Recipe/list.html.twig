@@ -1,12 +1,22 @@
 {% extends 'base.html.twig' %}
 
+{% block sub_sidebar %}
+<div id="submenu">
+
+	<a href="{{ url('recipe_create') }}">Crear Nueva</a>
+
+</div>
+{% endblock %}
+
 {% block title %}Listado de recetas{% endblock %}
 
 {% block body %}
 <ul>
 {% for recipe in recipes %}
 
-<li><a href="{{ url('recipe_show', { 'id': recipe.id }) }}">{{ recipe.name }}</a></li>
+<li>
+{{ recipe.name }} [<a href="{{ url('recipe_show', { 'id': recipe.id }) }}">Show</a>] [<a href="{{ url('recipe_modify', { 'id': recipe.id }) }}">Modify</a>] 
+</li>
 
 {% endfor %}
 </ul>

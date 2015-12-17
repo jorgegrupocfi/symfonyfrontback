@@ -138,11 +138,61 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                 return $this->mergeDefaults(array_replace($matches, array('_route' => 'recipe_show')), array (  '_controller' => 'My\\RecipesBundle\\Controller\\RecipeController::showAction',));
             }
 
+            if (0 === strpos($pathinfo, '/recipe-')) {
+                // recipe_create
+                if ($pathinfo === '/recipe-create') {
+                    return array (  '_controller' => 'My\\RecipesBundle\\Controller\\RecipeController::createAction',  '_route' => 'recipe_create',);
+                }
+
+                // recipe_modify
+                if (0 === strpos($pathinfo, '/recipe-modify') && preg_match('#^/recipe\\-modify/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'recipe_modify')), array (  '_controller' => 'My\\RecipesBundle\\Controller\\RecipeController::modifyAction',));
+                }
+
+            }
+
         }
 
-        // authors_list
-        if ($pathinfo === '/authors-list') {
-            return array (  '_controller' => 'My\\RecipesBundle\\Controller\\AuthorController::listAction',  '_route' => 'authors_list',);
+        if (0 === strpos($pathinfo, '/author')) {
+            // authors_list
+            if ($pathinfo === '/authors-list') {
+                return array (  '_controller' => 'My\\RecipesBundle\\Controller\\AuthorController::listAction',  '_route' => 'authors_list',);
+            }
+
+            if (0 === strpos($pathinfo, '/author-')) {
+                // author_create
+                if ($pathinfo === '/author-create') {
+                    return array (  '_controller' => 'My\\RecipesBundle\\Controller\\AuthorController::createAction',  '_route' => 'author_create',);
+                }
+
+                // author_modify
+                if (0 === strpos($pathinfo, '/author-modify') && preg_match('#^/author\\-modify/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'author_modify')), array (  '_controller' => 'My\\RecipesBundle\\Controller\\AuthorController::modifyAction',));
+                }
+
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/ingredient')) {
+            // ingredients_list
+            if ($pathinfo === '/ingredients-list') {
+                return array (  '_controller' => 'My\\RecipesBundle\\Controller\\IngredientController::listAction',  '_route' => 'ingredients_list',);
+            }
+
+            if (0 === strpos($pathinfo, '/ingredient-')) {
+                // ingredient_create
+                if ($pathinfo === '/ingredient-create') {
+                    return array (  '_controller' => 'My\\RecipesBundle\\Controller\\IngredientController::createAction',  '_route' => 'ingredient_create',);
+                }
+
+                // ingredient_modify
+                if (0 === strpos($pathinfo, '/ingredient-modify') && preg_match('#^/ingredient\\-modify/(?P<id>\\d+)$#s', $pathinfo, $matches)) {
+                    return $this->mergeDefaults(array_replace($matches, array('_route' => 'ingredient_modify')), array (  '_controller' => 'My\\RecipesBundle\\Controller\\IngredientController::modifyAction',));
+                }
+
+            }
+
         }
 
         // homepage
