@@ -25,13 +25,22 @@ class RecipeController extends Controller{
 	}
 	
 	/*
+	 * @Template()
+	 */
+	public function karloslistAction(){
+		
+		return $this->render('MyRecipesBundle:Recipe:list.html.twig', array(
+				'recipes' => $this->get('my_recipes.recipes')->recetasdekarlos()
+		));
+	}
+	
+	/*
 	 * @Route('/{id}', name="recipe_show", requirements={"id" = "\d+"})
 	 * @Method({"GET"})
 	 */
 	public function showAction($id) {
 		
-		$em = $this->getDoctrine()->getManager();
-		$recipe = $em->getRepository('MyRecipesBundle:Recipe')->find($id);
+		$recipe = $this->get('my_recipes.recipes')->show($id);
 		$author = $recipe->getAuthor();
 		$ingredients = $recipe->getIngredients();
 		
@@ -40,6 +49,7 @@ class RecipeController extends Controller{
 				'author' => $author,
 				'ingredients' => $ingredients
 		));
+		
 	}
 	
 	/*

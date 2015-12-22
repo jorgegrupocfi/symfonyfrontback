@@ -23,20 +23,20 @@ class __TwigTemplate_0a70ea14ffe6ce4b23008bed8525dccd1d8ae159b05a467d4e3a49ff9ae
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_59c78a80fa3c462d7d757633b8cb58230746071d2cd051ee14ef09182dc2d8db = $this->env->getExtension("native_profiler");
-        $__internal_59c78a80fa3c462d7d757633b8cb58230746071d2cd051ee14ef09182dc2d8db->enter($__internal_59c78a80fa3c462d7d757633b8cb58230746071d2cd051ee14ef09182dc2d8db_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MyRecipesBundle:Recipe:list.html.twig"));
+        $__internal_31afa1c09d4b450fa1ddcd133693a4daa19ba879284d47d6ecd91d9f495ca91f = $this->env->getExtension("native_profiler");
+        $__internal_31afa1c09d4b450fa1ddcd133693a4daa19ba879284d47d6ecd91d9f495ca91f->enter($__internal_31afa1c09d4b450fa1ddcd133693a4daa19ba879284d47d6ecd91d9f495ca91f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MyRecipesBundle:Recipe:list.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_59c78a80fa3c462d7d757633b8cb58230746071d2cd051ee14ef09182dc2d8db->leave($__internal_59c78a80fa3c462d7d757633b8cb58230746071d2cd051ee14ef09182dc2d8db_prof);
+        $__internal_31afa1c09d4b450fa1ddcd133693a4daa19ba879284d47d6ecd91d9f495ca91f->leave($__internal_31afa1c09d4b450fa1ddcd133693a4daa19ba879284d47d6ecd91d9f495ca91f_prof);
 
     }
 
     // line 3
     public function block_sub_sidebar($context, array $blocks = array())
     {
-        $__internal_12be6803ad2e0c7e7b23e3dca5b53efd658d197c5bd3f0267e60d77ce6c70212 = $this->env->getExtension("native_profiler");
-        $__internal_12be6803ad2e0c7e7b23e3dca5b53efd658d197c5bd3f0267e60d77ce6c70212->enter($__internal_12be6803ad2e0c7e7b23e3dca5b53efd658d197c5bd3f0267e60d77ce6c70212_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sub_sidebar"));
+        $__internal_4b797506db5cc60fc410a4c105bcbdeef48b177d1b807e8c54e706611220b0fa = $this->env->getExtension("native_profiler");
+        $__internal_4b797506db5cc60fc410a4c105bcbdeef48b177d1b807e8c54e706611220b0fa->enter($__internal_4b797506db5cc60fc410a4c105bcbdeef48b177d1b807e8c54e706611220b0fa_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sub_sidebar"));
 
         // line 4
         echo "<div id=\"submenu\">
@@ -44,32 +44,34 @@ class __TwigTemplate_0a70ea14ffe6ce4b23008bed8525dccd1d8ae159b05a467d4e3a49ff9ae
 \t<a href=\"";
         // line 6
         echo $this->env->getExtension('routing')->getUrl("recipe_create");
-        echo "\">Crear Nueva</a>
+        echo "\">Crear Nueva</a> | <a href=\"";
+        echo $this->env->getExtension('routing')->getUrl("karlos_recipes_list");
+        echo "\">Recetas de Karlos</a>
 
 </div>
 ";
         
-        $__internal_12be6803ad2e0c7e7b23e3dca5b53efd658d197c5bd3f0267e60d77ce6c70212->leave($__internal_12be6803ad2e0c7e7b23e3dca5b53efd658d197c5bd3f0267e60d77ce6c70212_prof);
+        $__internal_4b797506db5cc60fc410a4c105bcbdeef48b177d1b807e8c54e706611220b0fa->leave($__internal_4b797506db5cc60fc410a4c105bcbdeef48b177d1b807e8c54e706611220b0fa_prof);
 
     }
 
     // line 11
     public function block_title($context, array $blocks = array())
     {
-        $__internal_f16ad042b4f2d01636ee3353895e19b708aa8e384378b3c27cd7537036984452 = $this->env->getExtension("native_profiler");
-        $__internal_f16ad042b4f2d01636ee3353895e19b708aa8e384378b3c27cd7537036984452->enter($__internal_f16ad042b4f2d01636ee3353895e19b708aa8e384378b3c27cd7537036984452_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_9467637f43a4211af035a36bd863260eb25b887033368c2b3f1026a746aab316 = $this->env->getExtension("native_profiler");
+        $__internal_9467637f43a4211af035a36bd863260eb25b887033368c2b3f1026a746aab316->enter($__internal_9467637f43a4211af035a36bd863260eb25b887033368c2b3f1026a746aab316_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Listado de recetas";
         
-        $__internal_f16ad042b4f2d01636ee3353895e19b708aa8e384378b3c27cd7537036984452->leave($__internal_f16ad042b4f2d01636ee3353895e19b708aa8e384378b3c27cd7537036984452_prof);
+        $__internal_9467637f43a4211af035a36bd863260eb25b887033368c2b3f1026a746aab316->leave($__internal_9467637f43a4211af035a36bd863260eb25b887033368c2b3f1026a746aab316_prof);
 
     }
 
     // line 13
     public function block_body($context, array $blocks = array())
     {
-        $__internal_a1698c5e8ef716214fddfbc6f4750597c65c2ccb1f8f2ef49851a57b0aabb136 = $this->env->getExtension("native_profiler");
-        $__internal_a1698c5e8ef716214fddfbc6f4750597c65c2ccb1f8f2ef49851a57b0aabb136->enter($__internal_a1698c5e8ef716214fddfbc6f4750597c65c2ccb1f8f2ef49851a57b0aabb136_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_386f57e165db6aea83a2051949af5ab37c123ebbda2686be774a0ee0a989929c = $this->env->getExtension("native_profiler");
+        $__internal_386f57e165db6aea83a2051949af5ab37c123ebbda2686be774a0ee0a989929c->enter($__internal_386f57e165db6aea83a2051949af5ab37c123ebbda2686be774a0ee0a989929c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 14
         echo "<ul>
@@ -100,7 +102,7 @@ class __TwigTemplate_0a70ea14ffe6ce4b23008bed8525dccd1d8ae159b05a467d4e3a49ff9ae
         echo "</ul>
 ";
         
-        $__internal_a1698c5e8ef716214fddfbc6f4750597c65c2ccb1f8f2ef49851a57b0aabb136->leave($__internal_a1698c5e8ef716214fddfbc6f4750597c65c2ccb1f8f2ef49851a57b0aabb136_prof);
+        $__internal_386f57e165db6aea83a2051949af5ab37c123ebbda2686be774a0ee0a989929c->leave($__internal_386f57e165db6aea83a2051949af5ab37c123ebbda2686be774a0ee0a989929c_prof);
 
     }
 
@@ -116,7 +118,7 @@ class __TwigTemplate_0a70ea14ffe6ce4b23008bed8525dccd1d8ae159b05a467d4e3a49ff9ae
 
     public function getDebugInfo()
     {
-        return array (  100 => 22,  86 => 18,  82 => 16,  78 => 15,  75 => 14,  69 => 13,  57 => 11,  46 => 6,  42 => 4,  36 => 3,  11 => 1,);
+        return array (  102 => 22,  88 => 18,  84 => 16,  80 => 15,  77 => 14,  71 => 13,  59 => 11,  46 => 6,  42 => 4,  36 => 3,  11 => 1,);
     }
 }
 /* {% extends 'base.html.twig' %}*/
@@ -124,7 +126,7 @@ class __TwigTemplate_0a70ea14ffe6ce4b23008bed8525dccd1d8ae159b05a467d4e3a49ff9ae
 /* {% block sub_sidebar %}*/
 /* <div id="submenu">*/
 /* */
-/* 	<a href="{{ url('recipe_create') }}">Crear Nueva</a>*/
+/* 	<a href="{{ url('recipe_create') }}">Crear Nueva</a> | <a href="{{ url('karlos_recipes_list') }}">Recetas de Karlos</a>*/
 /* */
 /* </div>*/
 /* {% endblock %}*/

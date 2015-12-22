@@ -5,6 +5,10 @@ homepage:
 recipes_list:
   path:     /recipes-list
   defaults: { _controller: MyRecipesBundle:Recipe:list }
+  
+karlos_recipes_list:
+  path:     /karlos-recipes-list
+  defaults: { _controller: MyRecipesBundle:Recipe:karloslist }
 
 recipe_show:
   path:     /recipe/{id}
