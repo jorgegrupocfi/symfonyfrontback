@@ -3,11 +3,13 @@
 namespace My\RecipesBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\EventDispatcher;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use My\RecipesBundle\Form\RecipeType;
 use My\RecipesBundle\Entity\Recipe;
+use My\RecipesBundle\Event\RecipesListener;
+use My\RecipesBundle\Event\RecipeEvent;
 
 /*
  * @Route('/recipe')
@@ -59,6 +61,10 @@ class RecipeController extends Controller{
 	public function createAction(Request $request) {
 		
 		$recipe = new Recipe();
+		$dispatcher = new \Symfony\Component\EventDispatcher\EventDispatcher();
+		
+		$listener = $this->container->get('my_recipes.recipes_listener');
+		$dispatcher->addListener('recipe.create', array($listener, 'onRecipeCreate'));
 		
 		$em = $this->getDoctrine()->getManager();
 		$em->persist($recipe);
@@ -68,7 +74,10 @@ class RecipeController extends Controller{
 		
 		if($form->isValid()){
 			$em->flush();
-			return $this->redirect($this->generateUrl('recipes_list'));
+			
+			$this->get('event_dispatcher')->dispatch('recipe.create', new RecipeEvent($recipe));
+			
+			return $this->redirect($this->generateUrl('recipe_show', array('id' => $recipe->getId())));
 		}
 	
 		//# http://brentertainment.com/other/docs/cookbook/form/twig_form_customization.html#cookbook-form-twig-two-methods

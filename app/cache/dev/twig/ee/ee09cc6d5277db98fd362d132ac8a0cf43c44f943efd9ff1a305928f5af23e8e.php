@@ -15,8 +15,8 @@ class __TwigTemplate_683be32ebad637e423b4725ca4582fe530c987b6a8e11bdc25567845319
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_adeabc3afe2061bf5d6d5d605a8548d08d384a1841de9d59cea775edd6a87430 = $this->env->getExtension("native_profiler");
-        $__internal_adeabc3afe2061bf5d6d5d605a8548d08d384a1841de9d59cea775edd6a87430->enter($__internal_adeabc3afe2061bf5d6d5d605a8548d08d384a1841de9d59cea775edd6a87430_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MyRecipesBundle:Default:index.html.twig"));
+        $__internal_4c417d28dc24015f34b238490b831aad56ff2b28dbc2b6da86717604a716d0a0 = $this->env->getExtension("native_profiler");
+        $__internal_4c417d28dc24015f34b238490b831aad56ff2b28dbc2b6da86717604a716d0a0->enter($__internal_4c417d28dc24015f34b238490b831aad56ff2b28dbc2b6da86717604a716d0a0_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MyRecipesBundle:Default:index.html.twig"));
 
         // line 1
         echo "Hello ";
@@ -24,7 +24,7 @@ class __TwigTemplate_683be32ebad637e423b4725ca4582fe530c987b6a8e11bdc25567845319
         echo "!
 ";
         
-        $__internal_adeabc3afe2061bf5d6d5d605a8548d08d384a1841de9d59cea775edd6a87430->leave($__internal_adeabc3afe2061bf5d6d5d605a8548d08d384a1841de9d59cea775edd6a87430_prof);
+        $__internal_4c417d28dc24015f34b238490b831aad56ff2b28dbc2b6da86717604a716d0a0->leave($__internal_4c417d28dc24015f34b238490b831aad56ff2b28dbc2b6da86717604a716d0a0_prof);
 
     }
 

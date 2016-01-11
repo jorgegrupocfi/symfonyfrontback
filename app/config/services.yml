@@ -10,3 +10,9 @@ services:
   my_recipes.recipes:
     class: My\RecipesBundle\Model\Recipes
     arguments: ["@doctrine.orm.entity_manager"]
+    
+  my_recipes.recipes_listener:
+    class: My\RecipesBundle\Event\RecipesListener
+    arguments: ['@logger']
+    tags:
+      - { name: kernel.event_listener, event: recipe.create, method: onRecipeCreate }

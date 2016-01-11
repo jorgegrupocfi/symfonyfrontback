@@ -22,32 +22,32 @@ class __TwigTemplate_bf293024eea9d3b2c1c4a46846fac34fd19e6a430ddd2ea096b47067cde
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_3127b0a584b5f670a84593a4bb35164ba8bee7af5cf00aa756d9a6413fa755ac = $this->env->getExtension("native_profiler");
-        $__internal_3127b0a584b5f670a84593a4bb35164ba8bee7af5cf00aa756d9a6413fa755ac->enter($__internal_3127b0a584b5f670a84593a4bb35164ba8bee7af5cf00aa756d9a6413fa755ac_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MyRecipesBundle:Author:form.html.twig"));
+        $__internal_f3db255be44bb900675d2b8b390fab7c53e629446f87a36de8efdc9787e46863 = $this->env->getExtension("native_profiler");
+        $__internal_f3db255be44bb900675d2b8b390fab7c53e629446f87a36de8efdc9787e46863->enter($__internal_f3db255be44bb900675d2b8b390fab7c53e629446f87a36de8efdc9787e46863_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "MyRecipesBundle:Author:form.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_3127b0a584b5f670a84593a4bb35164ba8bee7af5cf00aa756d9a6413fa755ac->leave($__internal_3127b0a584b5f670a84593a4bb35164ba8bee7af5cf00aa756d9a6413fa755ac_prof);
+        $__internal_f3db255be44bb900675d2b8b390fab7c53e629446f87a36de8efdc9787e46863->leave($__internal_f3db255be44bb900675d2b8b390fab7c53e629446f87a36de8efdc9787e46863_prof);
 
     }
 
     // line 3
     public function block_title($context, array $blocks = array())
     {
-        $__internal_987bbe67f19165622488bf7677f161a6c8ba36e1fbe9bd08d5bf89c1f9055ae7 = $this->env->getExtension("native_profiler");
-        $__internal_987bbe67f19165622488bf7677f161a6c8ba36e1fbe9bd08d5bf89c1f9055ae7->enter($__internal_987bbe67f19165622488bf7677f161a6c8ba36e1fbe9bd08d5bf89c1f9055ae7_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
+        $__internal_33ad2fe69f7fe1ccf5fbda1b7ebd1760cd734d92760cf52ff17a3a056a27322f = $this->env->getExtension("native_profiler");
+        $__internal_33ad2fe69f7fe1ccf5fbda1b7ebd1760cd734d92760cf52ff17a3a056a27322f->enter($__internal_33ad2fe69f7fe1ccf5fbda1b7ebd1760cd734d92760cf52ff17a3a056a27322f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "title"));
 
         echo "Crear un nuevo autor";
         
-        $__internal_987bbe67f19165622488bf7677f161a6c8ba36e1fbe9bd08d5bf89c1f9055ae7->leave($__internal_987bbe67f19165622488bf7677f161a6c8ba36e1fbe9bd08d5bf89c1f9055ae7_prof);
+        $__internal_33ad2fe69f7fe1ccf5fbda1b7ebd1760cd734d92760cf52ff17a3a056a27322f->leave($__internal_33ad2fe69f7fe1ccf5fbda1b7ebd1760cd734d92760cf52ff17a3a056a27322f_prof);
 
     }
 
     // line 5
     public function block_body($context, array $blocks = array())
     {
-        $__internal_677aa152b50237584ac1716c89675ea3b5d464a8dfdd2d30d9f29a31bb7348b9 = $this->env->getExtension("native_profiler");
-        $__internal_677aa152b50237584ac1716c89675ea3b5d464a8dfdd2d30d9f29a31bb7348b9->enter($__internal_677aa152b50237584ac1716c89675ea3b5d464a8dfdd2d30d9f29a31bb7348b9_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_1375a9e8db4e283873bd65e5ee184c4d9077fa363deab1ad8ce3b46ce585bd8b = $this->env->getExtension("native_profiler");
+        $__internal_1375a9e8db4e283873bd65e5ee184c4d9077fa363deab1ad8ce3b46ce585bd8b->enter($__internal_1375a9e8db4e283873bd65e5ee184c4d9077fa363deab1ad8ce3b46ce585bd8b_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
         echo "
@@ -81,7 +81,7 @@ class __TwigTemplate_bf293024eea9d3b2c1c4a46846fac34fd19e6a430ddd2ea096b47067cde
 
 ";
         
-        $__internal_677aa152b50237584ac1716c89675ea3b5d464a8dfdd2d30d9f29a31bb7348b9->leave($__internal_677aa152b50237584ac1716c89675ea3b5d464a8dfdd2d30d9f29a31bb7348b9_prof);
+        $__internal_1375a9e8db4e283873bd65e5ee184c4d9077fa363deab1ad8ce3b46ce585bd8b->leave($__internal_1375a9e8db4e283873bd65e5ee184c4d9077fa363deab1ad8ce3b46ce585bd8b_prof);
 
     }
 

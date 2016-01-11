@@ -16,8 +16,8 @@ class __TwigTemplate_b365aeb7a751d15d0d3d02e247d1410fa45fa596571c489e0b2cbabd988
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_2f31e0c60a87b052c9dd34be0360eaf2edffebf500c959c0f3b57ae4763b8180 = $this->env->getExtension("native_profiler");
-        $__internal_2f31e0c60a87b052c9dd34be0360eaf2edffebf500c959c0f3b57ae4763b8180->enter($__internal_2f31e0c60a87b052c9dd34be0360eaf2edffebf500c959c0f3b57ae4763b8180_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::sidebar.html.twig"));
+        $__internal_96503b08cb11b8a50a7262b37f3cad1504a4aceffd122b6f33a8ea454705ca4d = $this->env->getExtension("native_profiler");
+        $__internal_96503b08cb11b8a50a7262b37f3cad1504a4aceffd122b6f33a8ea454705ca4d->enter($__internal_96503b08cb11b8a50a7262b37f3cad1504a4aceffd122b6f33a8ea454705ca4d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "::sidebar.html.twig"));
 
         // line 1
         echo "
@@ -25,14 +25,14 @@ class __TwigTemplate_b365aeb7a751d15d0d3d02e247d1410fa45fa596571c489e0b2cbabd988
         // line 2
         $this->displayBlock('sidebar', $context, $blocks);
         
-        $__internal_2f31e0c60a87b052c9dd34be0360eaf2edffebf500c959c0f3b57ae4763b8180->leave($__internal_2f31e0c60a87b052c9dd34be0360eaf2edffebf500c959c0f3b57ae4763b8180_prof);
+        $__internal_96503b08cb11b8a50a7262b37f3cad1504a4aceffd122b6f33a8ea454705ca4d->leave($__internal_96503b08cb11b8a50a7262b37f3cad1504a4aceffd122b6f33a8ea454705ca4d_prof);
 
     }
 
     public function block_sidebar($context, array $blocks = array())
     {
-        $__internal_2a8deed8bcdd1c0aea8cd9f10adf789721fe990fa20dcf1ac70a3efd30cc5784 = $this->env->getExtension("native_profiler");
-        $__internal_2a8deed8bcdd1c0aea8cd9f10adf789721fe990fa20dcf1ac70a3efd30cc5784->enter($__internal_2a8deed8bcdd1c0aea8cd9f10adf789721fe990fa20dcf1ac70a3efd30cc5784_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
+        $__internal_7f72a8dd1cf55d409946e86ee2ac39d6fa10c5d2454ce841cefc08ff6bc930ee = $this->env->getExtension("native_profiler");
+        $__internal_7f72a8dd1cf55d409946e86ee2ac39d6fa10c5d2454ce841cefc08ff6bc930ee->enter($__internal_7f72a8dd1cf55d409946e86ee2ac39d6fa10c5d2454ce841cefc08ff6bc930ee_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "sidebar"));
 
         // line 3
         echo "<h2>Sidebar</h2>
@@ -56,7 +56,7 @@ class __TwigTemplate_b365aeb7a751d15d0d3d02e247d1410fa45fa596571c489e0b2cbabd988
 </ul>
 ";
         
-        $__internal_2a8deed8bcdd1c0aea8cd9f10adf789721fe990fa20dcf1ac70a3efd30cc5784->leave($__internal_2a8deed8bcdd1c0aea8cd9f10adf789721fe990fa20dcf1ac70a3efd30cc5784_prof);
+        $__internal_7f72a8dd1cf55d409946e86ee2ac39d6fa10c5d2454ce841cefc08ff6bc930ee->leave($__internal_7f72a8dd1cf55d409946e86ee2ac39d6fa10c5d2454ce841cefc08ff6bc930ee_prof);
 
     }
 
