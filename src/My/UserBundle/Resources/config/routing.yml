@@ -1,0 +1,13 @@
+my_user_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: MyUserBundle:Default:index }
+    
+usuarios_list:
+  path:     /usuarios/list
+  defaults: { _controller: MyUserBundle:User:list }
+  
+usuario_modify:
+  path: /usuarios/modify/{id}
+  defaults: { _controller: MyUserBundle:User:modify }
+  requirements:
+    id:  \d+

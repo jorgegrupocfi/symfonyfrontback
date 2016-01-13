@@ -1,0 +1,25 @@
+{% extends 'MyUserBundle::baseusuarios.html.twig' %}
+
+{% block title %}Listado de usuarios{% endblock %}
+
+{% block body %}
+
+{% for user in users %}
+<li>
+
+{{ user.username|e }} [<a href="{{ url('usuario_modify', { 'id': user.id }) }}">Modify</a>]
+
+Roles:
+
+{% for role in user.roles %}
+{{ role }} 
+{% endfor %}
+
+|
+
+Active: [{{ user.active }}] 
+
+</li>
+{% endfor %}
+
+{% endblock %}

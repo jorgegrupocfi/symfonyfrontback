@@ -1,3 +1,7 @@
+my_user:
+    resource: "@MyUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 my_recipes:
     resource: "@MyRecipesBundle/Resources/config/routing.yml"
     prefix:   /
@@ -5,3 +9,16 @@ my_recipes:
 app:
     resource: "@AppBundle/Controller/"
     type:     annotation
+
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+    
+my_user_login:
+  path: /login
+  
+my_user_logout:
+  path: /logout
+
+my_user_register:
+  path: /register
+

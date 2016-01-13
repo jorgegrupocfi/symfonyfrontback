@@ -1,0 +1,7 @@
+sudo php app/console generate:bundle --namespace=My/UserBundle
+
+sudo php app/console doctrine:generate:entity --entity=MyUserBundle:User --fields="email:string(255) username:string(255) password:string(64) salt:string(64) active:boolean" --format=yml
+
+sudo php app/console doctrine:schema:update --force
+
+php app/console debug:router

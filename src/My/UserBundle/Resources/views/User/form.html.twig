@@ -1,0 +1,18 @@
+{% extends 'MyUserBundle::baseusuarios.html.twig' %}
+
+{% block title %}Modificar usuario{% endblock %}
+
+{% block body %}
+
+<b>Modificar el usuario: {{ user.username }}</b> <br><br>
+
+{{ form_start(form, {'attr' : {'id' : 'usuario-modify'}}) }}
+
+{{ form_errors(form) }}
+{{ form_row(form.roles) }}
+{{ form_row(form.active) }}
+{{ form_row(form.save) }}
+
+{{ form_end(form) }}
+
+{% endblock %}

@@ -8,6 +8,24 @@
             	este es el index de mi site
             </div>
             
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            <div>
+            
+            
+            
+            	Datos del usuario: {{ app.user.username }}
+            	<br>
+            	Roles:
+            	{%for role in app.user.roles%}
+			    {{role}} 
+			    {%endfor%}  
+            	
+            	<br>
+            	
+            </div>
+            {% endif %}
+            
+            
         </div>
     </div>
 {% endblock %}

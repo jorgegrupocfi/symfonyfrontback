@@ -1,0 +1,33 @@
+<!-- http://www.sitepoint.com/basic-user-management-in-symfony2-with-fosuserbundle/ -->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        {% include 'MyUserBundle::header.html.twig' %}
+    </head>
+    <body>
+    
+    <div id="content">
+    
+	    <div id="wrapper">
+	    	
+		    <div id="sidebar">
+		    {% include 'MyUserBundle::sidebar.html.twig' %}	
+		    </div>
+		    
+		    <div id="sub_sidebar">
+		    	{% block sub_sidebar %}{% endblock %}
+		    </div>
+		    
+		   	<div id="container">
+		        {% block body %}{% endblock %}
+		    </div>
+		    
+		    <div id="footer">
+		    {% include '::footer.html.twig' %}
+		    </div>
+    </div>
+    
+        {% block javascripts %}{% endblock %}
+    </body>
+</html>
