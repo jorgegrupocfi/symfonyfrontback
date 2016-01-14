@@ -3,7 +3,7 @@
 {% block sub_sidebar %}
 <div id="submenu">
 
-	<a href="{{ url('ingredient_create') }}">Crear Nuevo</a>
+	<a href="{{ url('ingredient_create') }}">{% trans %}Crear Nuevo{% endtrans %}</a>
 
 </div>
 {% endblock %}
@@ -14,7 +14,7 @@
 <ul>
 {% for ingredient in ingredients %}
 
-<li>{{ ingredient.name }} [<a href="{{ url('ingredient_modify', { 'id': ingredient.id }) }}">Modify</a>]</li>
+<li>{{ ingredient.name }} [<a href="{{ url('ingredient_modify', { 'id': ingredient.id }) }}">{% trans %}Modificar{% endtrans %}</a>]</li>
 
 {% endfor %}
 </ul>

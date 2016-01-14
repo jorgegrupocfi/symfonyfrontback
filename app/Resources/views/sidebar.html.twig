@@ -1,18 +1,18 @@
-
 {% block sidebar %}
-<h2>Sidebar</h2>
+<h2>{% trans %}Navegación{% endtrans %}</h2>
 <ul class="list-inline">
-<li><a href="{{ url('homepage')}}">Home</a></li>
-<li><a href="{{ url('recipes_list') }}">Recetas</a></li>
-<li><a href="{{ url('authors_list') }}">Autores</a></li>
-<li><a href="{{ url('ingredients_list') }}">Ingredientes</a></li>
+<li><a href="{{ url('homepage')}}">{% trans %}Inicio{% endtrans %}</a></li>
+<li><a href="{{ url('recipes') }}">{% trans %}Recetas{% endtrans %}</a></li>
+<li><a href="{{ url('authors') }}">{% trans %}Autores{% endtrans %}</a></li>
+<li><a href="{{ url('ingredients') }}">{% trans %}Ingredientes{% endtrans %}</a></li>
 
 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-<b>Hola {{ app.user.username }}</b> | <a href="{{ path('my_user_logout') }}">Logout</a>
+<b>Hola {{ app.user.username }}</b> | <a href="{{ path('my_user_logout') }}">{% trans %}Salir{% endtrans %}</a>
 {% else %}
-<a href="{{ path('my_user_login') }}">Login</a> | <a href="{{ path('my_user_register') }}">Register</a>
+<a href="{{ path('my_user_login') }}">{% trans %}Entrar{% endtrans %}</a> | <a href="{{ path('my_user_register') }}">{% trans %}Registro{% endtrans %}</a>
 {% endif %}
-<li><a href="{{ url('usuarios_list') }}">Gestión de usuarios</a></li>
+<li><a href="{{ url('usuarios_list') }}">{% trans %}Gestión de usuarios{% endtrans %}</a></li>
+<li></li>
 </ul>
 
 {% for type, messages in app.session.flashBag.all %}

@@ -1,0 +1,63 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="1">
+                <source>Navegación</source>
+                <target>Sidebar</target>
+            </trans-unit>
+            <trans-unit id="2">
+            	<source>Inicio</source>
+                <target>Home</target>
+            </trans-unit>
+            <trans-unit id="3">
+            	<source>Recetas</source>
+                <target>Recipes</target>
+            </trans-unit>
+            <trans-unit id="4">
+            	<source>Autores</source>
+                <target>Authors</target>
+            </trans-unit>
+            <trans-unit id="5">
+            	<source>Ingredientes</source>
+                <target>Ingredients</target>
+            </trans-unit>
+            <trans-unit id="6">
+            	<source>Entrar</source>
+                <target>Login</target>
+            </trans-unit>
+            <trans-unit id="7">
+            	<source>Registro</source>
+                <target>Register</target>
+            </trans-unit>
+            <trans-unit id="8">
+            	<source>Salir</source>
+                <target>Logout</target>
+            </trans-unit>
+            <trans-unit id="9">
+            	<source>Gestión de usuarios</source>
+                <target>User Manager</target>
+            </trans-unit>
+            <trans-unit id="10">
+            	<source>default.homepage.introduction</source>
+                <target>Wellcome to my syte!!!</target>
+            </trans-unit>
+            <trans-unit id="11">
+            	<source>Modificar</source>
+                <target>Modify</target>
+            </trans-unit>
+            <trans-unit id="12">
+            	<source>Crear Nuevo</source>
+                <target>Create New</target>
+            </trans-unit>
+            <trans-unit id="13">
+            	<source>Crear Nueva</source>
+                <target>Create New</target>
+            </trans-unit>
+            <trans-unit id="14">
+            	<source>Mostrar</source>
+                <target>Show</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>

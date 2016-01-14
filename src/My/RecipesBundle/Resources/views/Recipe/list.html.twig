@@ -3,7 +3,7 @@
 {% block sub_sidebar %}
 <div id="submenu">
 
-	<a href="{{ url('recipe_create') }}">Crear Nueva</a> | <a href="{{ url('karlos_recipes_list') }}">Recetas de Karlos</a>
+	<a href="{{ url('recipe_create') }}">{% trans %}Crear Nueva{% endtrans %}</a> | <a href="{{ url('karlos_recipes_list') }}">{% trans %}Recetas de Karlos{% endtrans %}</a>
 
 </div>
 {% endblock %}
@@ -15,7 +15,7 @@
 {% for recipe in recipes %}
 
 <li>
-{{ recipe.name }} [<a href="{{ url('recipe_show', { 'id': recipe.id }) }}">Show</a>] [<a href="{{ url('recipe_modify', { 'id': recipe.id }) }}">Modify</a>] 
+{{ recipe.name }} [<a href="{{ url('recipe_show', { 'id': recipe.id }) }}">{% trans %}Mostrar{% endtrans %}</a>] [<a href="{{ url('recipe_modify', { 'id': recipe.id }) }}">{% trans %}Modificar{% endtrans %}</a>] 
 </li>
 
 {% endfor %}

@@ -2,10 +2,12 @@ homepage:
   pattern:  /
   defaults: { _controller: AppBundle:Default:show }
 
-recipes_list:
-  path:     /recipes-list
+recipes:
+  path:     /{_locale}/recipes
   defaults: { _controller: MyRecipesBundle:Recipe:list }
-  
+  requirements:
+    _locale: '%app.locales%'
+
 karlos_recipes_list:
   path:     /karlos-recipes-list
   defaults: { _controller: MyRecipesBundle:Recipe:karloslist }
@@ -24,9 +26,11 @@ recipe_modify:
   requirements:
     id:  \d+
   
-authors_list:
-  path:     /authors-list
+authors:
+  path:     /{_locale}/authors-list
   defaults: { _controller: MyRecipesBundle:Author:list }
+  requirements:
+    _locale: '%app.locales%'
   
 author_create:
   path:     /author-create
@@ -38,9 +42,11 @@ author_modify:
   requirements:
     id:  \d+
     
-ingredients_list:
-  path:     /ingredients-list
+ingredients:
+  path:     /{_locale}/ingredients-list
   defaults: { _controller: MyRecipesBundle:Ingredient:list }
+  requirements:
+    _locale: '%app.locales%'
   
 ingredient_create:
   path:     /ingredient-create
