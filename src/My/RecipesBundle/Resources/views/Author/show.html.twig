@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block title %}{{ author.name }}{% endblock %}
+
+{% block body %}
+
+	<h1>Nombre y Apellidos desde el objeto Author</h1>
+	<h2>{{author.name}} {{author.surname}} </h2>
+	
+	<h1>Solo nombre desde el modelo Author</h1>
+	<h2>{{solonombre}} </h2>
+	
+{% endblock %}
