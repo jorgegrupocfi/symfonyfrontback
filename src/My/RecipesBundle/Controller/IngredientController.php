@@ -47,7 +47,7 @@ class IngredientController extends Controller{
 			$em = $this->getDoctrine()->getManager();
 			$em->persist($ingredient);
 			$em->flush(); 
-			return $this->redirect($this->generateUrl('ingredients_list'));
+			return $this->redirect($this->generateUrl('ingredients'));
 		}
 		
 		//# http://brentertainment.com/other/docs/cookbook/form/twig_form_customization.html#cookbook-form-twig-two-methods
@@ -79,7 +79,7 @@ class IngredientController extends Controller{
 	
 		if($form->isValid()){
 			$em->flush();
-			return $this->redirect($this->generateUrl('ingredients_list'));
+			return $this->redirect($this->generateUrl('ingredients'));
 		}
 		
 		return $this->render("MyRecipesBundle:Ingredient:form.html.twig",

@@ -97,11 +97,12 @@ class Author {
      *
      * @return string
      */
+    
     public function getNombreApellidos()
     {
     	return $this->name . ' ' . $this->surname;
     }
-
+    
     /**
      * Add recipe
      *

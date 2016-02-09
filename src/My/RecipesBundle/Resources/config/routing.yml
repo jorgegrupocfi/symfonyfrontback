@@ -31,6 +31,10 @@ authors:
   defaults: { _controller: MyRecipesBundle:Author:list }
   requirements:
     _locale: '%app.locales%'
+    
+author_show:
+  path:     /author/{id}
+  defaults: { _controller: MyRecipesBundle:Author:show }
   
 author_create:
   path:     /author-create

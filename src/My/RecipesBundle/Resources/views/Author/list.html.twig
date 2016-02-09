@@ -3,7 +3,7 @@
 {% block sub_sidebar %}
 <div id="submenu">
 
-	<a href="{{ url('author_create') }}">{% trans %}Crear Nuevo{% endtrans %}</a>
+	<a href="{{ url('author_create') }}" id="link_crear_autor">{% trans %}Crear Nuevo{% endtrans %}</a>
 
 </div>
 {% endblock %}
@@ -15,7 +15,9 @@
 {% for author in authors %}
 
 <li>
-{{ author.NombreApellidos }} [<a href="{{ url('author_modify', { 'id': author.id }) }}">{% trans %}Modificar{% endtrans %}</a>]
+{{ author.NombreApellidos }}
+[<a href="{{ url('author_show', { 'id': author.id }) }}">{% trans %}Mostrar{% endtrans %}</a>]
+[<a href="{{ url('author_modify', { 'id': author.id }) }}">{% trans %}Modificar{% endtrans %}</a>]
 </li>
 
 {% endfor %}

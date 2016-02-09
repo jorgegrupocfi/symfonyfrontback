@@ -16,3 +16,12 @@ services:
     arguments: ['@logger']
     tags:
       - { name: kernel.event_listener, event: recipe.create, method: onRecipeCreate }
+      
+  my_recipes.author:
+    class: My\RecipesBundle\Model\Author
+    arguments: ["@doctrine.orm.entity_manager"]
+    
+  app.my_recipes.author.controller:
+    class: My\RecipesBundle\Controller\AuthorController
+    
+  
