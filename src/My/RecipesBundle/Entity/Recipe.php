@@ -8,6 +8,7 @@ class Recipe {
 	
 	private $id;
 	protected $name;
+	protected $slug;
 	protected $difficulty;
 	protected $description;
 	protected $author;
@@ -54,6 +55,21 @@ class Recipe {
     public function getName()
     {
         return $this->name;
+    }
+    
+    /**
+     * Get slug
+     * 
+     * para construir un parametro "slug" a partir del name
+     * y añadirlo a la ruta para crear urls amigables 
+     * 
+     * @return string
+     */
+    public function getSlug(){
+    	
+    	$str = trim(strtolower($this->getName()));
+    	$str = preg_replace("/[^a-z0-9]+/", "-", $str);
+    	return $str;
     }
 
     /**
@@ -161,4 +177,7 @@ class Recipe {
     {
         return $this->ingredients;
     }
+    
+    
+    
 }

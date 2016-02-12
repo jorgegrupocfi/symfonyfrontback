@@ -13,8 +13,11 @@ karlos_recipes_list:
   defaults: { _controller: MyRecipesBundle:Recipe:karloslist }
 
 recipe_show:
-  path:     /recipe/{id}
+  path:     /recipe/{id}/{slug}
   defaults: { _controller: MyRecipesBundle:Recipe:show }
+  requirements:
+    id:  \d+
+    slug: ".+"
 
 recipe_create:
   path:     /recipe-create

@@ -15,7 +15,7 @@
 {% for recipe in recipes %}
 
 <li>
-{{ recipe.name }} [<a href="{{ url('recipe_show', { 'id': recipe.id }) }}">{% trans %}Mostrar{% endtrans %}</a>] [<a href="{{ url('recipe_modify', { 'id': recipe.id }) }}">{% trans %}Modificar{% endtrans %}</a>] 
+{{ recipe.name }} [<a href="{{ url('recipe_show', { 'id': recipe.id, 'slug' : recipe.slug }) }}">{% trans %}Mostrar{% endtrans %} (con id + URL amigable)</a>] [<a href="{{ url('recipe_modify', { 'id': recipe.id }) }}">{% trans %}Modificar{% endtrans %}</a>] 
 </li>
 
 {% endfor %}

@@ -37,7 +37,7 @@ class RecipeController extends Controller{
 	}
 	
 	/*
-	 * @Route('/{id}', name="recipe_show", requirements={"id" = "\d+"})
+	 * @Route('/recipe/{id}/{slug}', name="recipe_show", requirements={"id" = "\d+", "slug" = ".+"})
 	 * @Method({"GET"})
 	 */
 	public function showAction($id) {

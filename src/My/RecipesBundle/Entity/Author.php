@@ -12,7 +12,6 @@ class Author {
 	/**
 	 * @Assert\NotBlank()
 	 * @AuthorAssert\ConstrainsNoNumeros
-	 * )
 	 */
 	protected $name;
 	
